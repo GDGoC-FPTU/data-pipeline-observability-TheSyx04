@@ -17,9 +17,9 @@ Chạy `agent_simulation.py` với 2 bộ dữ liệu và ghi lại kết quả:
 
 ---
 
-## 2. Phân tích & nhận xét
+## 2. Phân tích & nhận xét (Phan tich & nhan xet)
 
-### Tại sao Agent trả lời sai khi dùng Garbage Data?
+### Tại sao Agent trả lời sai khi dùng Garbage Data? (Tai sao Agent tra loi sai khi dung Garbage Data?)
 
 Agent trong `agent_simulation.py` chọn sản phẩm Electronics có giá cao nhất, nên rất nhạy cảm với chất lượng dữ liệu đầu vào. Trong `garbage_data.csv` có nhiều lỗi: duplicate ID (id=1 lặp lại), sai kiểu dữ liệu (`ten dollars`), outlier cực lớn (`Nuclear Reactor` giá 999999), và null/zero (`Ghost Item`). Vì agent không validate khi stress test, outlier giá trị lớn nhất sẽ thắng trong phép `idxmax`, dẫn đến trả lời lệch hoàn toàn. Ngoài ra, wrong data type và null values có thể gây lỗi hoặc làm giảm độ tin cậy của truy vấn, cho thấy nếu không có data observability thì prompt tốt vẫn cho ra kết quả tệ.
 
